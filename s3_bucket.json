@@ -1,8 +1,8 @@
 {
-    "AWSTemplateFormatVersion": "2018-09-09",
+    "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "create git repo and s3 bucket",
     "Parameters": {
-        "ProjectName": {"type": "string"}
+        "ProjectName": {"Type": "String"}
     },
     "Resources": {
         "s3Bucket": {
@@ -23,11 +23,11 @@
     "Outputs": {
         "BucketName": {
             "Description": "Bucket name",
-            "value": {"Ref": "s3bucket"}
+            "Value": {"Ref": "s3Bucket"}
         },
         "GitRepo": {
             "Description": "Git repo name",
-            "value": {"Ref": "gitrepo"}
+            "Value": {"Ref": "gitrepo"}
         }
 
     }
