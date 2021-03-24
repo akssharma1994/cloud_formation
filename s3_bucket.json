@@ -1,0 +1,48 @@
+{
+    "AWSTemplateFormatVersion": "2018-09-09",
+    "Description": "create git repo and s3 bucket",
+    "parameters":{
+        "ProjectName": {"type": "string"}
+    },
+    "Resources": {
+        "s3bucket": {
+            "Type": "AWS::S3:::Bucket"
+            {
+                "parameters": {
+                    "AccessControl": "Private"
+                }
+            }
+        }
+    },
+    "gitrepo": {
+        "Type": "AWS::CodeCommit::Repository"
+        "Properties": {
+            "RepositoryDescription": "This is a dashboard project",
+            "RepositoryName": {"Ref": "ProjectName"}
+
+        }
+    },
+    "Outputs": {
+        "BucketName": {
+            "Description": "Bucket name",
+            "value": {"Ref": "s3bucket"}
+        },
+        "GitRepo": {
+            "Description": "Git repo name",
+            "value": {"Ref": "gitrepo"}
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+}
